@@ -1,0 +1,117 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+
+</head>
+<body>
+  <form name="form1">
+    名字：<input type="text"  name="username" value="">
+	
+	生日：<input type="text"  name="birthday" value=""><br></br>
+	性別：<input name="sex" type="radio" value="男">男
+	     <input name="sex" type="radio" value="女" >女<p>
+	嗜好（可複選）：<p>
+	
+		<input id="h" name="hobby" type="checkbox" value="book">閱讀
+		<input id="h" name="hobby" type="checkbox" value="sport" >運動
+		<input id="h" name="hobby" type="checkbox" value="music" >音樂
+		<input id="h" name="hobby" type="checkbox" value="sleep">睡覺
+		<input id="h" name="hobby" type="checkbox" value="talk">聊天
+	
+		<p>自傳:</p>
+<textarea id="me" ng-model="message" cols="40" rows="10"></textarea>
+	
+<br></br>
+ <input type="button" value="送出" onclick="postData()" />
+	<input type="submit" value="送出表單">
+	<input type="reset" value="重新輸入">
+<button onclick="myFunction()">送出表單2</button>
+
+    <input type="button" value="送出" onclick="postData()" />
+  </form>
+  <div id="di"> </div>
+
+  <p id="output"></p>
+  <script>
+      function postData(){
+                
+				
+				var output = document.getElementById("output");
+				var username = document.form1.username.value;
+				var birthday = document.form1.birthday.value;
+				var sex = document.form1.sex.value;
+				var checkedValue = null; 
+				var inputElements = document.getElementsByName("hobby");
+				for(var i=0; inputElements[i]; ++i){
+					if(inputElements[i].checked){
+						checkedValue = inputElements[i].value;
+						break;
+					}
+				}
+				var me = document.form1.me.value
+				var objNode = document.getElementById("di");
+				var table_Node = document.createElement("table");
+				var tr = document.createElement("tr");
+				var th = document.createElement("th");
+				var th2 = document.createElement("th");
+				var th3 = document.createElement("th");
+				var th4 = document.createElement("th");
+				var th5 = document.createElement("th");
+				var strText = "姓名";
+				var table_Node_text = document.createTextNode(strText);
+				var strText2 = "生日";
+				var table_Node_text2 = document.createTextNode(strText2);
+				var strText3 = "性別";
+				var table_Node_text3 = document.createTextNode(strText3);
+				var strText4 = "興趣";
+				var table_Node_text4 = document.createTextNode(strText4);
+				var strText5 = "自界";
+				var table_Node_text5 = document.createTextNode(strText5);
+
+				objNode.appendChild(table_Node);
+				table_Node.appendChild(tr);
+				tr.appendChild(th);
+				tr.appendChild(th2);
+				tr.appendChild(th3);
+				tr.appendChild(th4);
+				tr.appendChild(th5);
+				th.appendChild(table_Node_text);
+				th2.appendChild(table_Node_text2);
+				th3.appendChild(table_Node_text3);
+				th4.appendChild(table_Node_text4);
+				th5.appendChild(table_Node_text5);
+
+				var td = document.createElement("td");
+				var tr2 = document.createElement("tr");
+				var td1 = document.createElement("td");
+				var td2 = document.createElement("td");
+				var td3 = document.createElement("td");
+				var td4 = document.createElement("td");
+				var td5 = document.createElement("td");
+				var table_Node_text6 = document.createTextNode(username);
+				var table_Node_text7 = document.createTextNode(birthday);
+				var table_Node_text8 = document.createTextNode(sex);
+				var table_Node_text9 = document.createTextNode(checkedValue);
+				var table_Node_text10 = document.createTextNode(me);
+
+				table_Node.appendChild(tr2);
+				tr2.appendChild(td);
+				tr2.appendChild(td2);
+				tr2.appendChild(td3);
+				tr2.appendChild(td4);
+				tr2.appendChild(td5);
+				td.appendChild(table_Node_text6);
+				td2.appendChild(table_Node_text7);
+				td3.appendChild(table_Node_text8);
+				td4.appendChild(table_Node_text9);
+				td5.appendChild(table_Node_text10);
+				table_Node.setAttribute("border", "2");
+		
+		
+			}
+
+			</script>
+</body>
+</html>
